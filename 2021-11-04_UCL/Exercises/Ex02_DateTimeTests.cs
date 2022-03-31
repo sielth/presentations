@@ -49,7 +49,7 @@ namespace Exercises
         }
 
         [Fact]
-        public void In_2021_Danish_daylight_saving_time_ends_25th_of_October_at_0300_GMT_Plus2()
+        public void In_2021_Danish_daylight_saving_time_ends_31st_of_October_at_0300_GMT_Plus2()
         {
             // Express expectedEndOfDst using the Fluent API from FluentAssertions.Extensions
 
