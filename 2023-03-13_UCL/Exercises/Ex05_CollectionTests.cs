@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using FluentAssertions;
 using Xunit;
 
@@ -15,7 +16,7 @@ namespace Exercises
             var result = new[] { 41, 42, 43 };
 
             // Assert
-            throw new NotImplementedException();
+            result.Should().BeInAscendingOrder();
         }
 
         [Fact]
@@ -31,7 +32,7 @@ namespace Exercises
             var result = new[] { 41, 42, 43 };
 
             // Assert
-            throw new NotImplementedException();
+            result.Should().Equal(expected);
         }
 
         [Fact]
@@ -53,7 +54,7 @@ namespace Exercises
             Person[] result = GetPersons();
 
             // Assert
-            throw new NotImplementedException();
+            result.SelectMany(p => p.Name).Should().BeEquivalentTo(expected.SelectMany(y => y.Name));
         }
 
         [Fact]
@@ -66,7 +67,7 @@ namespace Exercises
             object[] objects = GetObjects();
 
             // Assert
-            throw new NotImplementedException();
+            objects.Should().HaveCount(2);
         }
 
         [Fact]
@@ -84,7 +85,15 @@ namespace Exercises
             object[] objects = GetObjects();
 
             // Assert
-            throw new NotImplementedException();
+            objects.Should().SatisfyRespectively(first =>
+                {
+                    first.Should().BeOfType(typeof(string));
+                    (first as string)?.Length.Should().Be(expectedLength);
+                },
+                second =>
+                {
+                    second.Should().Be(42);
+                });
         }
 
         [Fact]
@@ -97,7 +106,7 @@ namespace Exercises
             object[] objects = GetRandomObjects();
 
             // Assert
-            throw new NotImplementedException();
+            objects.Should().Contain(expected);
         }
 
         [Fact]
@@ -110,7 +119,7 @@ namespace Exercises
             object[] objects = GetObjects();
 
             // Assert
-            throw new NotImplementedException();
+            objects.Should().ContainInOrder(expectedNumbers);
         }
 
         #region Helpers

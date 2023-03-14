@@ -16,7 +16,7 @@ namespace Exercises
             int result = TheAnswerToTheUltimateQuestionOfLifeTheUniverseAndEverything();
 
             // Assert
-            throw new NotImplementedException();
+            result.Should().Be(42);
         }
 
         [Fact]
@@ -32,7 +32,7 @@ namespace Exercises
             account.DonateToScouts();
 
             // Assert
-            throw new NotImplementedException();
+            account.Balance.Should().BePositive();
         }
 
         [InlineData(2020)]
@@ -44,7 +44,7 @@ namespace Exercises
             int result = DateTime.DaysInMonth(year, 2);
 
             // Assert
-            throw new NotImplementedException();
+            result.Should().BeGreaterThanOrEqualTo(28).And.BeLessThanOrEqualTo(29);
         }
 
         [Fact]
@@ -57,7 +57,7 @@ namespace Exercises
             double primarySchoolPi = GetPrimarySchoolPi();
 
             // Assert
-            throw new NotImplementedException();
+            primarySchoolPi.Should().BeApproximately(pi, 0.01f);
         }
 
         #region Helpers

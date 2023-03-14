@@ -19,7 +19,7 @@ namespace Exercises
             Action act = () => subject.DoesThrow();
 
             // Assert
-            throw new NotImplementedException();
+            act.Should().Throw<InvalidOperationException>();
         }
 
         [Fact]
@@ -37,7 +37,8 @@ namespace Exercises
             Action act = () => subject.DoesThrow();
 
             // Assert
-            throw new NotImplementedException();
+            act.Should().Throw<InvalidOperationException>().WithMessage("*foobar*")
+                .WithInnerException<DivideByZeroException>().WithMessage("*Dark Side*");
         }
 
         #region Helpers
