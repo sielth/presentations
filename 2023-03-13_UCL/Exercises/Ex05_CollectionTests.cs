@@ -87,6 +87,7 @@ namespace Exercises
             // Assert
             objects.Should().SatisfyRespectively(first =>
                 {
+                    first.As<string>().Should().HaveLength(expectedLength);
                     first.Should().BeOfType(typeof(string));
                     (first as string)?.Length.Should().Be(expectedLength);
                 },
@@ -120,6 +121,7 @@ namespace Exercises
 
             // Assert
             objects.Should().ContainInOrder(expectedNumbers);
+            objects.Should().BeEquivalentTo(expectedNumbers, options => options.WithStrictOrdering());
         }
 
         #region Helpers

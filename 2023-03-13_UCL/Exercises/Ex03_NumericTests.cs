@@ -45,6 +45,8 @@ namespace Exercises
 
             // Assert
             result.Should().BeGreaterThanOrEqualTo(28).And.BeLessThanOrEqualTo(29);
+            result.Should().BeInRange(28, 29);
+            result.Should().BeOneOf(28, 29);
         }
 
         [Fact]
